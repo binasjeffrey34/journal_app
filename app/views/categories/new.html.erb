@@ -1,0 +1,23 @@
+<style>
+  h1 {
+    text-align: center;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .div-button {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+</style>
+
+<h1>New Category</h1>
+<%= render 'form'%>
+
+<div class="div-button">
+<%= link_to 'Back', categories_path, class: 'button' %>
+</div>

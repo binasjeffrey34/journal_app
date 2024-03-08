@@ -1,0 +1,47 @@
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  .navbar {
+    background-color: #00BFFF;
+    overflow: hidden;
+  }
+
+  .navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 34px 30px;
+    text-decoration: none;
+  }
+
+  .navbar a:hover {
+    background-color: #87CEEB;
+    color: black;
+  }
+
+  /* Style for links on the right side */
+  .navbar-right {
+    float: right;
+  }
+</style>
+
+<div class="navbar">
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#contact">Contact</a>
+  
+  <div class="navbar-right">
+    <% if user_signed_in? %>
+      <%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
+      <%= link_to "Edit account", edit_user_registration_path %>
+    <% else %>
+      <%= link_to "Create account", new_user_registration_path %>
+      <%= link_to "Log in", new_user_session_path %>
+    <% end %>
+  </div>
+</div>

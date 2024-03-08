@@ -1,0 +1,92 @@
+<style>
+  .task-list-container {
+    margin: auto;
+    width: 60%; /* Adjust as needed */
+    padding: 20px;
+  }
+
+  .task-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .task-table th,
+  .task-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center; /* Center content horizontally */
+    vertical-align: middle; /* Center content vertically */
+  }
+
+  .task-table th {
+    background-color: #f2f2f2;
+  }
+
+  .task-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  .task-table tr:hover {
+    background-color: #ddd;
+  }
+
+  .task-table .action-buttons {
+    display: flex;
+    justify-content: center;
+  }
+
+  .task-table .action-buttons button {
+    margin: 0 5px; /* Adjust spacing between buttons */
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .add-button, .back-button {
+    font-size: 40px;
+  }
+
+</style>
+
+<div class="task-list-container">
+  <h1>Tasks for <%= @category.name %></h1>
+  <%= link_to '+', new_category_task_path(category_id: @category.id), class: 'add-button' %>
+  
+  <% if @category.tasks.any? %>
+    <table class="task-table">
+      <thead>
+        <tr>
+          <th>Task Name</th>
+          <th>Due Date</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @category.tasks.each do |task| %>
+          <tr>
+            <td id="task-name-<%= task.id %>"><%= task.name %></td>
+            <td><%= task.due_date %></td>
+            <td>
+              <%= form_with(model: [@category, task], method: :patch) do |form| %>
+                <%= form.check_box :status, onchange: "this.form.submit()"%>
+              <% end %>
+            </td>
+            <td class="action-buttons">
+              <%= link_to 'Edit', edit_category_task_path(category_id: @category.id, id: task.id), class: 'btn btn-primary' %>
+              <%= button_to category_task_path(@category, task), method: :delete, data: { turbo_confirm: "Are you sure?"}, class: 'btn btn-danger' do %>
+                Delete
+              <% end %>
+            </td>
+          </tr>
+        <% end %>      
+      </tbody>
+    </table>
+  <% else %>
+    <p>No tasks added yet.</p>
+  <% end %>
+  
+  <%= link_to '←', categories_path, class: 'back-button' %>
+</div>
