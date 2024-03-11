@@ -1,24 +1,19 @@
-# README
+**Tasker**
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+  A simple task management app built on Ruby on Rails.
 
-Things you may want to cover:
+![image](https://github.com/binasjeffrey34/journal_app/assets/145768147/356476a4-7df1-41cb-96e9-158e10099e80)
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
+**Features**
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  User can create an account and log in to access the account.
+  
+  User can add, edit/update, and delete a category that organizes the tasks.
+  
+  User can add, edit/update, and delete a task in each category.
+  
+  User can mark a task as completed.
+  
+  User can view all tasks due in current date from the dashboard.
