@@ -1,16 +1,5 @@
 class PagesController < ApplicationController
-  
+  skip_before_action :authenticate_user!
   def home
-  end
-
-  def users
-  end
-
-  def index
-    @pages = Page.all
-  end
-
-  def show 
-    @pages = Page.find(params[:id])
   end
 end

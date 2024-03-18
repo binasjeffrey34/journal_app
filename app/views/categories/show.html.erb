@@ -50,6 +50,9 @@
 
 </style>
 
+<script>
+
+</script>
 <div class="task-list-container">
   <h1>Tasks for <%= @category.name %></h1>
   <%= link_to '+', new_category_task_path(category_id: @category.id), class: 'add-button' %>
@@ -61,6 +64,7 @@
           <th>Task Name</th>
           <th>Due Date</th>
           <th>Status</th>
+          <th>Details</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -71,21 +75,22 @@
             <td><%= task.due_date %></td>
             <td>
               <%= form_with(model: [@category, task], method: :patch) do |form| %>
-                <%= form.check_box :status, onchange: "this.form.submit()"%>
+                <%= form.check_box :status, as: :boolean, onchange: "this.form.submit()"%>
               <% end %>
             </td>
+            <td><%= link_to 'View', category_task_path(category_id: @category.id, id: task.id) %></td>
             <td class="action-buttons">
               <%= link_to 'Edit', edit_category_task_path(category_id: @category.id, id: task.id), class: 'btn btn-primary' %>
-              <%= button_to category_task_path(@category, task), method: :delete, data: { turbo_confirm: "Are you sure?"}, class: 'btn btn-danger' do %>
-                Delete
-              <% end %>
+              <%= button_to 'Delete', category_task_path(@category, task), method: :delete, data: { turbo_confirm: "Are you sure?"}, class: 'btn btn-danger' %>
             </td>
           </tr>
         <% end %>      
       </tbody>
     </table>
   <% else %>
-    <p>No tasks added yet.</p>
+    <div>
+    <p>No tasks to show.</p>
+    </div>
   <% end %>
   
   <%= link_to '←', categories_path, class: 'back-button' %>

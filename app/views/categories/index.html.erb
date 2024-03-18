@@ -82,6 +82,19 @@
     margin-left: 80px;
     font-size: 20px;
   }
+
+  .button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
 </style>
 
 <div class="all-categories">
@@ -94,8 +107,8 @@
       <li>
         <%= link_to category.name, category_path(category), class: 'name-category' %>
         <div class="buttons">
-          <%= link_to 'Edit', edit_category_path(category) %>
-          <%= button_to 'Delete', category_path(category), method: :delete, data: { turbo_confirm: 'Are you sure?' } %>
+          <%= link_to 'Edit', edit_category_path(category), class: 'button' %>
+          <%= button_to 'Delete', category_path(category), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'button' %>
         </div>
       </li>
     <% end %>

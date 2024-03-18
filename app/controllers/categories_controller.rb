@@ -1,13 +1,12 @@
 class CategoriesController < ApplicationController
-  before_action :authenticate_user!
-   
+  before_action :set_category, except: [:new, :create, :index]
+
   def index
-    @categories = current_user.categories.all
+    @categories = current_user.categories.order(created_at: :asc)
   end
 
   def show
-    @category = current_user.categories.find(params[:id])
-    # @tasks = @category.tasks.find(params[:id])
+    @tasks = @category.tasks.order(id: :asc)
   end
 
   def new
@@ -17,23 +16,22 @@ class CategoriesController < ApplicationController
   def create
     @category = current_user.categories.new(category_params)
     if @category.save
-      redirect_to @category, notice: 'Category was successfully created.'
+      flash[:notice] = "Category name successfully updated!"
+      redirect_to categories_path
     else
       render :new, status: :unprocessable_entity
     end
   end
 
 
-  def edit
-    @category = current_user.categories.find(params[:id])
+  def edit 
   end
 
 
   def update
-    @category = current_user.categories.find(params[:id])
-
     if @category.update(category_params)
-      redirect_to @category, notice: 'Category was successfully updated.'
+      flash[:notice] = "Category name successfully updated!"
+      redirect_to categories_path
     else
       render :edit, status: :unprocessable_entity
     end
@@ -41,13 +39,17 @@ class CategoriesController < ApplicationController
 
 
   def destroy
-    @category = current_user.categories.find(params[:id])
     @category.destroy
     redirect_to categories_path, notice: "#{@category.name} was successfully destroyed."
   end
 
   
   private
+
+  def set_category
+    @category = current_user.categories.find(params[:id])
+  end
+
 
   def category_params
     params.require(:category).permit(:name).merge(user_id: current_user.id)

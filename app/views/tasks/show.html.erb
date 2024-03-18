@@ -1,9 +1,42 @@
-<h1><%= @task.name %></h1>
+<style>
+.task-details-box {
+  width: 15%; /* Adjust as needed */
+  margin: auto; /* Center the box horizontally */
+  padding: 20px;
+  border: 1px solid #ccc; /* Add border for the box */
+  border-radius: 5px; /* Optional: Add rounded corners */
+  text-align: center; /* Center text within the box */
+  margin-top: 50px; /* Add margin to the top of the box */
+}
 
+.div-button {
+  margin-top: 20px; /* Add space between the content and the button */
+}
 
-<p><strong>Due Date:</strong> <%= @task.due_date %></p>
-<p><strong>Status:</strong> <%= @task.status ? 'Completed' : 'Pending' %></p>
-<p><strong>Category:</strong> <%= @task.category %></p>
+.button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
 
-<%= link_to 'Edit', edit_category_task_path(@task.category) %> |
-<%= link_to 'Back to Tasks', tasks_path %>
+.button:hover {
+  background-color: #0056b3;
+}
+</style>
+
+<div class="task-details-box">
+  <h1><%= @task.name %></h1>
+  
+    <p><strong>Due Date:</strong> <%= @task.due_date.in_time_zone.strftime("%B %e, %Y") %></p>
+    <p><strong>Status:</strong> <%= @task.status ? 'Completed' : 'Pending' %></p>
+    <p><strong>Category:</strong> <%= @task.category.name %></p>
+    <p><strong>Created at:</strong> <%= @task.created_at.in_time_zone.strftime("%B %e, %Y %l:%M %p") %></p>
+    <p><strong>Updated at:</strong> <%= @task.updated_at.in_time_zone.strftime("%B %e, %Y %l:%M %p") %></p>
+  
+  <div class="div-button">
+    <%= link_to 'Edit', edit_category_task_path(@task.category), class: 'button' %>
+    <%= link_to 'Back', category_path(@category), class: 'button' %>
+  </div>
+</div>
