@@ -1,13 +1,13 @@
-.edit-category {
+.edit-category-name h1 {
     text-align: center;
 }
 
-.div-button a {
+.editcatdiv-button a {
     text-decoration: none;
     color: inherit;
 }
 
-.div-button {
+.editcatdiv-button {
     text-align: center;
     margin-top: 10px;
 }

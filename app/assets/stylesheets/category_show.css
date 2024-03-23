@@ -37,9 +37,8 @@
       justify-content: center;
   }
 
-  .task-table .action-buttons button {
+  .task-table .action-buttons .task-button {
       margin: 0 5px;
-      /* Adjust spacing between buttons */
   }
 
   .action-buttons a,
@@ -53,4 +52,32 @@
   .add-button,
   .back-button {
       font-size: 40px;
+  }
+
+
+  .view,
+  .task-button,
+  .action-buttons a {
+      padding: 3px 3px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 3px;
+      border: none;
+  }
+
+  .view,
+  .task-button,
+  .action-buttons a {
+      padding: 3px 3px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 3px;
+      border: none;
+  }
+
+  .view:hover,
+  .task-button:hover {
+      background-color: #0056b3;
   }

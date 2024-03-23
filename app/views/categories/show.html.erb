@@ -25,10 +25,17 @@
                 <%= form.check_box :status, as: :boolean, onchange: "this.form.submit()"%>
               <% end %>
             </td>
-            <td><%= link_to 'View', category_task_path(category_id: @category.id, id: task.id), class: 'view' %></td>
+            <td><%= link_to category_task_path(category_id: @category.id, id: task.id), class: 'view' do %>
+              <i class="fas fa-eye"></i>
+              <% end %>
+            </td>
             <td class="action-buttons">
-              <%= link_to 'Edit', edit_category_task_path(category_id: @category.id, id: task.id) %>
-              <%= button_to 'Delete', category_task_path(@category, task), method: :delete, data: { turbo_confirm: "Are you sure?"} %>
+              <%= link_to edit_category_task_path(category_id: @category.id, id: task.id), class: 'task-button' do %>
+                <i class="fas fa-edit"></i>
+              <% end %>    
+              <%= button_to category_task_path(@category, task), method: :delete, data: { turbo_confirm: "Are you sure?"}, class: 'task-button' do %>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
             </td>
           </tr>
         <% end %>      

@@ -4,8 +4,9 @@ body {
     padding: 0;
 }
 
-h2 {
+.all-categories h2 {
     margin-bottom: 10px;
+    font-size: 40px;
 }
 
 ul {
@@ -41,6 +42,7 @@ li a {
 
 .name-category {
     font-weight: bold;
+    font-size: 30px;
 }
 
 li .category-buttons {
@@ -82,16 +84,17 @@ li:hover .category-buttons {
     font-size: 20px;
 }
 
-.delete-category,
-.edit-category {
+.delete-category-button,
+.edit-category-button {
     padding: 10px 20px;
     background-color: #007bff;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
+    border: none;
 }
 
-.delete-category:hover,
-.edit-category:hover {
+.delete-category-button:hover,
+.edit-category-button:hover {
     background-color: #0056b3;
 }

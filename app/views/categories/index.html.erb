@@ -10,8 +10,12 @@
       <li>
         <%= link_to category.name, category_path(category), class: 'name-category' %>
         <div class="category-buttons">
-          <%= link_to 'Edit', edit_category_path(category), class: 'edit-category' %>
-          <%= button_to 'Delete', category_path(category), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'delete-category' %>
+          <%= link_to edit_category_path(category), class: 'edit-category-button' do %>
+            <i class="fas fa-edit"></i>
+          <% end %>      
+          <%= button_to category_path(category), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'delete-category-button' do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         </div>
       </li>
     <% end %>
