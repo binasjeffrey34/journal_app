@@ -1,0 +1,13 @@
+  .edit-task h1 {
+      text-align: center;
+  }
+
+  .task-div-button a {
+      text-decoration: none;
+      color: inherit;
+  }
+
+  .task-div-button {
+      text-align: center;
+      margin-top: 10px;
+  }

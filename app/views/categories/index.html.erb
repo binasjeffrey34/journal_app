@@ -1,101 +1,4 @@
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-
-  h2 {
-    margin-bottom: 10px;
-  }
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  li {
-    width: 200px;
-    height: 100px;
-    margin: 10px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    transition: transform 0.2s, background-color 0.2s;
-    position: relative;
-    text-align: center;
-  }
-
-  li:hover {
-    background-color: #ddd;
-    color: #000;
-    transform: translateY(-5px);
-  }
-
-  li a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .name-category {
-    font-weight:bold;
-  }
-
-  li .buttons {
-    opacity: 0;
-    position: absolute;
-    bottom: 10px;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    transition: opacity 0.2s;
-  }
-
-  li:hover .buttons {
-    opacity: 1;
-  }
-
-  .add-category {
-    text-decoration: none;
-    color: #000;
-    margin-left: 300px;
-    font-size: 40px;
-  }
-
-  .back-link {
-    text-decoration: none;
-    color: #000;
-    margin-left: 300px;
-    font-size: 40px;
-  }
-
-  .back-link .arrow {
-    display: inline-block;
-    transform: rotate(180deg);
-  }
-
-  .all-categories {
-    margin-left: 80px;
-    font-size: 20px;
-  }
-
-  .button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-}
-
-.button:hover {
-  background-color: #0056b3;
-}
-
-</style>
+<%= stylesheet_link_tag "category_index" %>
 
 <div class="all-categories">
 <h2>All Categories</h2>
@@ -106,9 +9,9 @@
     <% @categories.each do |category| %>
       <li>
         <%= link_to category.name, category_path(category), class: 'name-category' %>
-        <div class="buttons">
-          <%= link_to 'Edit', edit_category_path(category), class: 'button' %>
-          <%= button_to 'Delete', category_path(category), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'button' %>
+        <div class="category-buttons">
+          <%= link_to 'Edit', edit_category_path(category), class: 'edit-category' %>
+          <%= button_to 'Delete', category_path(category), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'delete-category' %>
         </div>
       </li>
     <% end %>

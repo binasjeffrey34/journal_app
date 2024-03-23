@@ -1,0 +1,27 @@
+.login-box-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+
+.login-box {
+    width: 200px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: #f5f5f5;
+}
+
+.login-box h2 {
+    text-align: center;
+}
+
+.field {
+    margin-bottom: 20px;
+}
+
+.actions {
+    text-align: center;
+}

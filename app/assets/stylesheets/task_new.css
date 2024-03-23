@@ -1,0 +1,13 @@
+  .new-task h1 {
+      text-align: center;
+  }
+
+  .newtask-div-button a {
+      text-decoration: none;
+      color: inherit;
+  }
+
+  .newtask-div-button {
+      text-align: center;
+      margin-top: 10px;
+  }

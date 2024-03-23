@@ -1,4 +1,8 @@
-    <h2>Sign up</h2>
+<%= stylesheet_link_tag "newaccount" %>
+
+<div class="newaccount-box-container">
+  <div class="newaccount-box">
+    <h2>Create new account</h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "users/shared/error_messages", resource: resource %>
@@ -27,3 +31,5 @@
     <% end %>
 
 <%= render "users/shared/links" %>
+  </div>
+</div>

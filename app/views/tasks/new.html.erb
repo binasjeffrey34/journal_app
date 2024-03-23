@@ -1,24 +1,10 @@
-<style>
-  h1 {
-    text-align: center;
-  }
-  
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
+<%= stylesheet_link_tag "task_new" %>
 
-  .div-button {
-    text-align: center;
-    margin-top: 10px;
-  }
-
-</style>
-
+<div class="new-task">
 <h1>New Task</h1>
-
+</div>
 <%= render 'form' %>
 
-<div class="div-button">
+<div class="newtask-div-button">
 <%= link_to 'Back', category_path(@category), class: 'button' %>
 </div>

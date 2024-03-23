@@ -1,58 +1,5 @@
-<style>
-  .task-list-container {
-    margin: auto;
-    width: 60%; /* Adjust as needed */
-    padding: 20px;
-  }
+<%= stylesheet_link_tag "category_show" %>
 
-  .task-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-
-  .task-table th,
-  .task-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center; /* Center content horizontally */
-    vertical-align: middle; /* Center content vertically */
-  }
-
-  .task-table th {
-    background-color: #f2f2f2;
-  }
-
-  .task-table tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-
-  .task-table tr:hover {
-    background-color: #ddd;
-  }
-
-  .task-table .action-buttons {
-    display: flex;
-    justify-content: center;
-  }
-
-  .task-table .action-buttons button {
-    margin: 0 5px; /* Adjust spacing between buttons */
-  }
-
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .add-button, .back-button {
-    font-size: 40px;
-  }
-
-</style>
-
-<script>
-
-</script>
 <div class="task-list-container">
   <h1>Tasks for <%= @category.name %></h1>
   <%= link_to '+', new_category_task_path(category_id: @category.id), class: 'add-button' %>
@@ -78,10 +25,10 @@
                 <%= form.check_box :status, as: :boolean, onchange: "this.form.submit()"%>
               <% end %>
             </td>
-            <td><%= link_to 'View', category_task_path(category_id: @category.id, id: task.id) %></td>
+            <td><%= link_to 'View', category_task_path(category_id: @category.id, id: task.id), class: 'view' %></td>
             <td class="action-buttons">
-              <%= link_to 'Edit', edit_category_task_path(category_id: @category.id, id: task.id), class: 'btn btn-primary' %>
-              <%= button_to 'Delete', category_task_path(@category, task), method: :delete, data: { turbo_confirm: "Are you sure?"}, class: 'btn btn-danger' %>
+              <%= link_to 'Edit', edit_category_task_path(category_id: @category.id, id: task.id) %>
+              <%= button_to 'Delete', category_task_path(@category, task), method: :delete, data: { turbo_confirm: "Are you sure?"} %>
             </td>
           </tr>
         <% end %>      
