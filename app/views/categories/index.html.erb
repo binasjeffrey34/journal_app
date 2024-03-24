@@ -3,25 +3,31 @@
 <div class="all-categories">
 <h2>All Categories</h2>
 </div>
+
 <%= link_to "+", new_category_path, class: 'add-category' %>
-<ul>
-  <% if @categories.present? %>
-    <% @categories.each do |category| %>
-      <li>
-        <%= link_to category.name, category_path(category), class: 'name-category' %>
-        <div class="category-buttons">
-          <%= link_to edit_category_path(category), class: 'edit-category-button' do %>
-            <i class="fas fa-edit"></i>
-          <% end %>      
-          <%= button_to category_path(category), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'delete-category-button' do %>
-            <i class="fas fa-trash-alt"></i>
-          <% end %>
-        </div>
-      </li>
+
+<div class="category-list-container">
+  <ul>
+    <% if @categories.present? %>
+      <% @categories.each do |category| %>
+        <li>
+          <%= link_to category.name, category_path(category), class: 'name-category' %>
+          <div class="category-buttons">
+            <%= link_to edit_category_path(category), class: 'edit-category-button' do %>
+              <i class="fas fa-edit"></i>
+            <% end %>      
+            <%= button_to category_path(category), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'delete-category-button' do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+    <% else %>
+    <div>
+      <p>No categories found.</p>
+    </div>
     <% end %>
-  <% else %>
-    <li>No categories found.</li>
-  <% end %>
-</ul>
+</div>
 
 <%= link_to '←', root_path, class: 'back-link' %>

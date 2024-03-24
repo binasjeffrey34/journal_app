@@ -5,7 +5,7 @@
     <h1>Welcome to Tasker!</h1>
     <h2>Today:</h2>
   </div>
-  <% tasks_due_today = current_user.tasks.where(due_date: Date.today) %>
+  <% tasks_due_today = current_user.tasks.where("due_date <= ? AND status = ?", Date.today, false) %>
   <% if tasks_due_today.any? %>
     <div class="container">
       <table class="due-today-table">
@@ -14,6 +14,7 @@
             <th>Task Name</th>
             <th>Due Date</th>
             <th>Status</th>
+            <th>Days Pending</th>
             <th>Category</th>
           </tr>
         </thead>
@@ -23,6 +24,7 @@
               <td><%= task.name %></td>
               <td><%= task.due_date %></td>
               <td><%= task.status ? 'Completed' : 'Pending' %></td>
+              <td><%= (Date.today - task.due_date).to_i %></td>
               <td><%= task.category.name %></td>
             </tr>
           <% end %>

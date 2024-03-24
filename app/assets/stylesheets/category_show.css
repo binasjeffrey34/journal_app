@@ -1,7 +1,6 @@
   .task-list-container {
       margin: auto;
       width: 60%;
-      /* Adjust as needed */
       padding: 20px;
   }
 
@@ -15,9 +14,7 @@
       border: 1px solid #ddd;
       padding: 8px;
       text-align: center;
-      /* Center content horizontally */
       vertical-align: middle;
-      /* Center content vertically */
   }
 
   .task-table th {
@@ -69,12 +66,16 @@
   .view,
   .task-button,
   .action-buttons a {
-      padding: 3px 3px;
+      padding: 5px 5px;
       background-color: #007bff;
       color: #fff;
       text-decoration: none;
       border-radius: 3px;
       border: none;
+  }
+
+  #delete-task {
+      font-size: 15px;
   }
 
   .view:hover,

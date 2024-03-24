@@ -33,7 +33,7 @@
               <%= link_to edit_category_task_path(category_id: @category.id, id: task.id), class: 'task-button' do %>
                 <i class="fas fa-edit"></i>
               <% end %>    
-              <%= button_to category_task_path(@category, task), method: :delete, data: { turbo_confirm: "Are you sure?"}, class: 'task-button' do %>
+              <%= button_to category_task_path(@category, task), method: :delete, data: { turbo_confirm: "Are you sure?"}, class: 'task-button', id: 'delete-task' do %>
                 <i class="fas fa-trash-alt"></i>
               <% end %>
             </td>

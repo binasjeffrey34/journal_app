@@ -4,6 +4,13 @@ body {
     padding: 0;
 }
 
+.category-list-container {
+    margin: auto;
+    width: 60%;
+    padding: 20px;
+}
+
+
 .all-categories h2 {
     margin-bottom: 10px;
     font-size: 40px;
@@ -92,6 +99,10 @@ li:hover .category-buttons {
     text-decoration: none;
     border-radius: 5px;
     border: none;
+}
+
+.delete-category-button {
+    font-size: 20px;
 }
 
 .delete-category-button:hover,
